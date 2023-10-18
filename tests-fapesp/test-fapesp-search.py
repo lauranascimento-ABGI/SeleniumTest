@@ -8,14 +8,14 @@ import time
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))  # Configura o driver do Chrome
 
-driver.get("https://google.com")
-search = driver.find_element(By.ID, "APjFqb")
+driver.get("https://fapesp.br/chamadas-html")
+search = driver.find_element(By.ID, "search-input")
 search.send_keys("Fapesp")
+# button = driver.find_element(By.CLASS_NAME, "text-center")
 search.send_keys(Keys.ENTER)
-
-# driver.find_element(By.NAME, "btnK").click()
-
-time.sleep(2)  # Quantos segundos fica aberto o site
+time.sleep(2)  # Quantos segundos fica aberto esperando o próximo comando
 driver.close()  # Fecha a aba
-driver.quit()  # Fecha a janela inteira
-print("Done!")
+print("Done 1!")
+
+driver.get("https://fapesp.br/chamadas-html")
+driver.find_element(By.XPATH, "/html/body/main/div/div[1]/div/div[1]/div[1]/b[2]").click()
